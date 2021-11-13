@@ -1,11 +1,21 @@
-from flask import Flask, request, jsonify
+import os
 import joblib
 import numpy as np
+from config import MODEL_ABS_PATH, INDEX_ABS_PATH
+from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 
-@app.route("/predict", methods=["POST"])
+# Html documentation
+@app.route("/")
 def index():
+    return render_template("index.html")
+    
+
+
+# Predict endpoint
+@app.route("/predict", methods=["POST"])
+def endpoint():
     # Check if request has a JSON content
     if request.json:
         # Get the JSON as dictionnary
@@ -16,7 +26,8 @@ def index():
         # Check mandatory key
         if "input" in req.keys():
             # Load model
-            reg = joblib.load("model.joblib")
+            model_file = os.path.join(MODEL_ABS_PATH, "model.joblib")
+            reg = joblib.load(model_file)
 
             # Predict
             prediction = reg.predict(req["input"])
