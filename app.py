@@ -8,8 +8,10 @@ from flask import Flask, request, jsonify, make_response
 
 
 app = Flask(__name__)
-api = Api(app, version='1.0', title='White Winne Prediction',
-    description='Jedha ML production project.',
+api = Api(app, 
+        version='1.0', 
+        title='White Wine Prediction',
+        description='Jedha ML production project.',
 )
 
 
