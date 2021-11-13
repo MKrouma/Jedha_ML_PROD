@@ -20,11 +20,9 @@ def index():
 
             # Predict
             prediction = reg.predict(req["input"])
-            print(prediction)
-            # Return the result as JSON but first we need to transform the
-            # result so as to be serializable by jsonify()
-            # prediction = prediction
+            prediction = prediction.tolist()
 
+            # return prediction
             return jsonify({"predict": prediction}), 200
     return jsonify({"msg": "Error: not a JSON or no email key in your request"})
 
