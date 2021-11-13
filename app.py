@@ -1,7 +1,6 @@
 import os
 import joblib
 import numpy as np
-from config import MODEL_ABS_PATH, INDEX_ABS_PATH
 from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
@@ -26,7 +25,7 @@ def endpoint():
         # Check mandatory key
         if "input" in req.keys():
             # Load model
-            model_file = os.path.join(MODEL_ABS_PATH, "model.joblib")
+            model_file = os.path.join("./model/model.joblib")
             reg = joblib.load(model_file)
 
             # Predict
