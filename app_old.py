@@ -1,7 +1,10 @@
+"""
+dosctring, pylint will be happy.
+"""
+
 import os
 import joblib
 import numpy as np
-from flask_restx import Api
 from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
@@ -9,13 +12,17 @@ app = Flask(__name__)
 # Html documentation
 @app.route("/")
 def index():
+    """ home page
+    """
     return render_template("index.html")
-    
 
 
 # Predict endpoint
 @app.route("/predict", methods=["POST"])
 def endpoint():
+    """ predict endpoint
+    """
+
     # Check if request has a JSON content
     if request.json:
         # Get the JSON as dictionnary
