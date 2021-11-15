@@ -24,7 +24,7 @@ class FetchData(Resource):
 
     @classmethod
     def post(cls) :
-        """ post
+        """.
         """
         # Check if request has a JSON content
         if request.json:
@@ -62,7 +62,7 @@ class Predict(Resource):
 
     @classmethod
     def post(cls):
-        """ post data to predict with model.
+        """.
         """
         # Check if request has a JSON content
         if request.json:
