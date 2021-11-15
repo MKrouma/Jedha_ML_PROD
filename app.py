@@ -40,10 +40,12 @@ class FetchData(Resource):
 
                 # read data
                 data = pd.read_csv("./data/winequality.csv")
+                print(type(data))
 
                 if col in data.columns :
-                    data_list = data.loc[:, col].to_list()
-                    data_json = {col: data_list}
+                    # pylint: disable=E1136
+                    data = data[col].to_list()
+                    data_json = {col: data}
 
                     return make_response(jsonify(data_json), 200)
 
