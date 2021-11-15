@@ -26,4 +26,4 @@ Set CI Github-Heroku
 
 ## Authors :
 Mamadou Krouma \
-[MKrouma] (https://github.com/MKrouma)
+[MKrouma](https://github.com/MKrouma)
