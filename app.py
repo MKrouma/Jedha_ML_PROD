@@ -42,7 +42,8 @@ class FetchData(Resource):
                 data = pd.read_csv("./data/winequality.csv")
 
                 if col in data.columns :
-                    data_json = {col: data.loc[:, col].to_list()}
+                    data_list = data.loc[:, col].to_list()
+                    data_json = {col: data_list}
 
                     return make_response(jsonify(data_json), 200)
 
