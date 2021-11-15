@@ -1,3 +1,7 @@
+"""
+docstring to make pylint happy.
+"""
+
 import os
 import joblib
 import numpy as np
@@ -6,10 +10,9 @@ from flask_restx import Resource, Api, reqparse
 from flask import Flask, request, jsonify, make_response
 
 
-
 app = Flask(__name__)
-api = Api(app, 
-        version='1.0', 
+api = Api(app,
+        version='1.0',
         title='White Wine Prediction',
         description='Jedha ML production project.',
 )
@@ -17,8 +20,12 @@ api = Api(app,
 
 @api.route('/fetchdata', methods=["POST"])
 class FetchData(Resource):
-    def post(self) :
+    """ fetch data endpoint
+    """
 
+    def post(self) :
+        """ post
+        """
         # Check if request has a JSON content
         if request.json:
             # Get the JSON as dictionnary
@@ -34,7 +41,7 @@ class FetchData(Resource):
                 # read data
                 data = pd.read_csv("./data/winequality.csv")
 
-                if col in data.columns : 
+                if col in data.columns :
                     data = {col: data.loc[:, col].to_list()}
 
                     return make_response(jsonify(data), 200)
@@ -47,8 +54,12 @@ class FetchData(Resource):
 
 @api.route('/predict', methods=["POST"])
 class Predict(Resource):
+    """ predict endpoint.
+    """
 
     def post(self):
+        """ post data to predict with model.
+        """
         # Check if request has a JSON content
         if request.json:
             # Get the JSON as dictionnary
