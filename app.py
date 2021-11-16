@@ -3,10 +3,10 @@ docstring to make pylint happy.
 """
 
 import os
-import joblib
-import pandas as pd
-from flask_restx import Resource, Api
-from flask import Flask, request, jsonify, make_response
+import joblib # type: ignore
+import pandas as pd # type: ignore
+from flask_restx import Resource, Api # type: ignore
+from flask import Flask, request, jsonify, make_response # type: ignore
 
 
 app = Flask(__name__)
