@@ -24,6 +24,9 @@ Set CI Github-Heroku
 > Git & Github \
 > Heroku
 
+## Results
+API in production : **https://jedhamlproduction.herokuapp.com/**
+
 ## Authors :
 Mamadou Krouma \
 [MKrouma](https://github.com/MKrouma)
